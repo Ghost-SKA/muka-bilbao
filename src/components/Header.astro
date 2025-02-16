@@ -1,73 +1,83 @@
-<header id="header" class="w-full h-20">
-	<div class="flex justify-between h-full">
-		<a class="menu"><span class="line"></span></a>
-		<a href="#topArea">
-			<div class="logo"></div>
+<!-- Header / Nav -->
+<header
+	id="mainHeader"
+	class="fixed top-0 left-0 w-full h-[100px] border-b border-gray-300 bg-white text-center z-10 transition-all duration-300"
+>
+	<div class="inline-block py-3">
+	<img
+		src="./src/assets/images/mukalogo.jpeg"
+		alt="Logo"
+		class="w-[192px]"
+	/>
+	</div>
+	<div class="absolute top-[26px] right-0">
+	<ul class="inline-block">
+		<li class="inline-block">
+		<a href="#" class="mr-[25px]">
+			<img
+			src="./src/assets/images/btn_fb_off.png"
+			alt="Facebook"
+			class="w-[22px]"
+			/>
 		</a>
-		<div class="social-media"></div>
+		</li>
+		<li class="inline-block">
+		<a href="#" class="mr-[25px]">
+			<img
+			src="./src/assets/images/btn_insta_off.png"
+			alt="Instagram"
+			class="w-[22px]"
+			/>
+		</a>
+		</li>
+	</ul>
 	</div>
 </header>
 
-<script>
-	document.addEventListener("DOMContentLoaded", () => {
-		const header = document.getElementById("header");
-		const topArea = document.getElementById("topArea");
-		const mainContent = document.querySelector("main"); // Selecciona el contenido principal
-
-		function checkScroll() {
-			const topAreaHeight = topArea.offsetHeight; // Altura del topArea
-			const scrollPosition = window.scrollY; // Posición actual del scroll
-
-			// Si el scroll supera la altura del topArea, fijar el header
-			if (scrollPosition >= 840) { // Ajusta este valor según sea necesario
-				if (!header.classList.contains("isFixed")) {
-					header.classList.add("isFixed");
-					mainContent.style.marginTop = "80px"; // Ajusta el margen superior del contenido principal
-					console.log("Header FIJADO en top:0");
-				}
-			} else {
-				if (header.classList.contains("isFixed")) {
-					header.classList.remove("isFixed");
-					mainContent.style.marginTop = "0"; // Restaura el margen superior
-					console.log("Header en bottom de topArea");
-				}
-			}
-		}
-
-		window.addEventListener("scroll", checkScroll);
-		checkScroll(); // Para verificar el estado inicial
-	});
-</script>
 
 <style>
 	header {
-		border-bottom: 1px solid #e0e0e0;
-		background: #fff;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		text-align: center;
-		z-index: 1000;
-		transition: all 0.3s ease-in-out;
-		min-width: 1200px;
-		width: 100%;
+	  transition: all 0.3s ease;
 	}
+  
+	header.bottom-0 {
+	  top: auto;
+	  bottom: 0;
+	  border-top: 1px solid #e0e0e0;
+	  border-bottom: none;
+	}
+  
+	header.top-0 {
+	  top: 0;
+	  bottom: auto;
+	  border-bottom: 1px solid #e0e0e0;
+	  border-top: none;
+	}
+  </style>
+  <script>
+	document.addEventListener("DOMContentLoaded", function () {
+	const header = document.getElementById("mainHeader");
+	const topArea = document.getElementById("topArea");
 
-	header.isFixed {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		background: rgba(255, 255, 255, 0.9);
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-		transition: all 0.3s ease-in-out;
-		z-index: 1000;
-	}
+	// Altura del topArea
+	const topAreaHeight = topArea.offsetHeight;
 
-	header .logo {
-		width: 807px;
-		height: auto; /* Mantiene la proporción */
-		background: url(../assets/images/mukalogo.jpeg) no-repeat center;
-		background-size: contain; /* Escala la imagen correctamente */
-	}
-</style>
+	// Inicialmente, el header está en la parte inferior
+	header.classList.add("bottom-0", "top-auto");
+
+	window.addEventListener("scroll", function () {
+		const scrollPosition = window.scrollY;
+
+		if (scrollPosition >= topAreaHeight) {
+		// Si el scroll supera la altura del topArea, mover el header a la parte superior
+		header.classList.remove("bottom-0", "top-auto");
+		header.classList.add("top-0");
+		} else {
+		// Si el scroll está dentro del topArea, mover el header a la parte inferior
+		header.classList.remove("top-0");
+		header.classList.add("bottom-0", "top-auto");
+		}
+	});
+	});
+  </script>
+  
