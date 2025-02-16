@@ -1,0 +1,54 @@
+---
+const API_KEY = "AIzaSyAfQ7KgfRTTlr2dDzTbI-i3kQh7-vroBms";
+---
+ 
+<!-- Contenedor del mapa -->
+<div id="map" style="height: 400px; width: 100%;"></div>
+
+<!-- Cargar la API de Google Maps -->
+<script defer src={`https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=initMap`}></script>
+
+<script is:inline>
+    function initMap() {
+        const myLatlng = { lat: Number(43.26074041489765), lng: Number(-2.9454190884485834) };
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 16,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        scrollwheel: false,
+        });
+
+        const infowindow = new google.maps.InfoWindow({
+        content: "〒102-0093 東京都千代田区平河町2-5-3",
+        maxWidth: 500,
+        });
+
+        const marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        icon: {
+            url: "src/assets/images/googlemap.png",
+            scaledSize: new google.maps.Size(50, 50),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(25, 25),
+        },
+        });
+
+        marker.addListener("click", () => {
+        infowindow.open(map, marker);
+        });
+
+        window.addEventListener("resize", () => {
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(myLatlng);
+        });
+    }
+
+    // Evita la ejecución antes de que Google Maps esté disponible
+    window.addEventListener("load", () => {
+        if (typeof google !== "undefined" && typeof google.maps !== "undefined") {
+        initMap();
+        }
+    });
+</script>

@@ -1,65 +1,71 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Navbar from "../components/Navbar.astro";
+import Header from "../components/Header.astro";
+import About from "../components/About.astro";
+import Footer from "../components/Footer.astro";
+import Map from "../components/Map.astro";
+import LittleNap from "../components/LittleNap.astro";
 ---
 
-<Layout title="Ven y escóndete, la puerta está abierta - Muka Bar">
-	<Navbar />
+<Layout title={"Muka Bar Bilbao - "}>
+  <Header />
+  <div id="topArea">
+    <div class="bg fadeImg isShow" />
+		<!-- <img src="/src/assets/images/muka.gif" alt="Muka Bilbao" /> -->
+  </div>
 
-	<div class="grid grid-cols-1 md:grid-cols-2">
-		<!-- Primera Columna que ocupa todo el alto disponible -->
-		<div class="text-black flex flex-col border-y-2 border-r-2 border-primary">
-			<div class="p-8">
-				<h2 class="text-2xl font-bold">Dónde encontrarnos</h2>
-				<p class="mt-2">Simón Bolívar Kalea, 25, Abando, 48010 Bilbo, Bizkaia</p>
-				<p class="mt-1">Estacionamiento gratuito en calles cercanas</p>
-				<p class="mt-1"> 944 02 67 45</p>
-			</div>
-			<div class="p-8">
-				<h2 class="text-2xl font-bold">Horario de apertura</h2>
-				<p class="mt-2">Lunes a sábado</p>
-				<p>17:30 h – última reserva a las 21:30h</p>
-				<p>Domingo</p>
-				<p>Cerrado</p>
-				<p class="mt-1">Francés</p>
-			</div>
-		</div>
-
-		<!-- Segunda Columna con dos cajas -->
-		<div class="grid grid-rows-2 gap-4">
-			<div class="mb-8 md:mb-0 border-t-2 border-primary dark:border-secondary p-8">
-				<h2 class="text-2xl font-bold">Únete a nosotros</h2>
-				<p class="mt-2">Hacer una reserva</p>
-				<p class="mt-1">¡No dudes en llamarnos si no encuentras la disponibilidad de reserva que buscas, si sois un grupo de más de 6 personas!</p>
-				<button class="mt-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 p-2 rounded">Click aquí para llamar +</button>
-			</div>
-			<div class="border-t-2 border-primary dark:border-secondary p-8">
-				<h2 class="text-2xl font-bold">Sobre nosotros</h2>
-				<p class="mt-2">Situados en la calle Simón Bolívar, 24, fascinados por los productos locales</p>
-				<a href="#" class="text-primary underline">Saber más</a>
-			</div>
-			<div class="flex justify-between items-center border-y-2 border-primary dark:border-secondary p-4">
-				<span>Siguenos en nuestras redes sociales</span>
-				<div class="flex justify-center space-x-4">
-					<a href="#" class="text-muted hover:text-muted-foreground">Facebook</a>
-					<a href="#" class="text-muted hover:text-muted-foreground">Instagram</a>
-					<a href="#" class="text-muted hover:text-muted-foreground">Youtube</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="flex justify-between items-center border-b-2 border-border p-4 w-full">
-		<div class="flex justify-center space-x-4">
-		  <a href="#" class="text-muted hover:text-muted-foreground">Nuestro menú</a>
-		  <a href="#" class="text-muted hover:text-muted-foreground">Reservar</a>
-		  <a href="#" class="text-muted hover:text-muted-foreground">Galería</a>
-		  <a href="#" class="text-muted hover:text-muted-foreground">Menú del día</a>
-		</div>
-		<div class="flex-end">
-			<span>Realizado por: Ghost Projects</span>
-		</div>
-	</div>
+  <main>
+    <About />
+    <LittleNap />
+    <div id="photoArea" />
+    <Map />
+    <Footer />
+  </main>
 </Layout>
 
-<style></style>
+<style>
+  #topArea {
+    background-size: cover;
+    height: calc(100% - 77px);
+    text-align: center;
+    margin-bottom: 77px;
+    min-width: 1200px;
+  }
+
+  #topArea .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../assets/images/img_top.jpg) center bottom;
+    background-size: cover;
+    width: 100%;
+    height: 838px;
+    min-width: 1200px;
+  }
+  
+  #topArea img {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .fadeImg {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+  }
+
+  .fadeImg.isShow {
+    opacity: 1;
+  }
+
+  #photoArea {
+    height: 640px;
+    background: url(../assets/images/background.jpg) center center no-repeat fixed;
+    background-size: cover;
+  }
+
+  main {
+    transition: margin-top 0.3s ease-in-out; /* Suaviza el cambio de margen */
+  }
+</style>
