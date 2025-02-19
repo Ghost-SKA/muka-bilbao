@@ -4,6 +4,8 @@ import Header from "../components/Header.astro";
 import About from "../components/About.astro";
 import Map from "../components/Map.astro";
 import Layout from "../layouts/Layout.astro";
+import Menu from "../components/Menu.astro";
+import LittleNap from "../components/LittleNap.astro";
 ---
 
 <Layout title={"Muka Bar Bilbao - "}>
@@ -25,145 +27,16 @@ import Layout from "../layouts/Layout.astro";
 
     <!-- Photo Area -->
     <div id="photoArea" class="h-[640px]" />
-
-    <!-- Menu Area -->
-    <div id="MenuArea" class="pt-[76px]">
-      <div class="flex flex-col justify-center md:flex-row p-6 bg-background text-foreground w-[1100px] mx-auto">
-
-        <div class="md:w-1/2 md:pl-6 mt-[40px] pr-[80px]">
-          <h2 class="text-2xl font-bold">ABOUT HOCUS POCUS</h2>
-          <p class="text-muted-foreground mb-4">
-            ホーカスポーカスは魔法の言葉。
-          </p>
-          <p class="mb-4">“HOCUS POCUS” IS THE WORD OF MAGIC.</p>
-          <p class="text-muted-foreground mb-4">
-            It puts a delicious and lush spell on our sweets and people who eat
-            it. Our sweets are made by traditional process and brilliant skills.
-            We have the donuts which look like cakes, and hand-portable baked
-            sweets. Our shop is on the first floor of the building in
-            Hirakawa-cho, TOKYO, just two minutes walk from the Nagata-cho
-            station. There is a leafy entrance gate, and we have some seats in
-            our shop.
-          </p>
-          <p class="mb-4">
-            What you can enjoy here is wonderful coffee and sweets, and relaxing
-            rich time. In our shop, you can drink a coffee of “Little Nap COFFEE
-            STAND”, the coffee shop in Yoyogi-Koen station.
-          </p>
-          <p class="text-muted-foreground">
-            We hope it will be a special time that you choose and eat our
-            sweets, and give it someone. Please come to our shop in any time of
-            your daily life, and enjoy our delicious magic.
-          </p>
-        </div>
-
-        
-        <!-- Imagen -->
-        <img src="./src/assets/images/img_menu.jpg" class="w-[460px] my-[40px]" />
-      </div>
+      <Menu />
+      <LittleNap />
+      <Map />
+      <Footer />
     </div>
-
-    <!-- Littlenap Area -->
-    <div id="litteNapArea">
-      <div class="flex flex-col justify-center md:flex-row p-6 bg-background text-foreground w-[1100px] mx-auto">
-        <!-- Imagen -->
-        <img src="./src/assets/images/img_littlenap.jpg" class="w-[460px] my-[40px]" />
-
-        <div class="md:w-1/2 md:pl-6 mt-[40px] pl-[140px]">
-          <h2 class="text-2xl font-bold">ABOUT HOCUS POCUS</h2>
-          <p class="text-muted-foreground mb-4">
-            ホーカスポーカスは魔法の言葉。
-          </p>
-          <p class="mb-4">“HOCUS POCUS” IS THE WORD OF MAGIC.</p>
-          <p class="text-muted-foreground mb-4">
-            It puts a delicious and lush spell on our sweets and people who eat
-            it. Our sweets are made by traditional process and brilliant skills.
-            We have the donuts which look like cakes, and hand-portable baked
-            sweets. Our shop is on the first floor of the building in
-            Hirakawa-cho, TOKYO, just two minutes walk from the Nagata-cho
-            station. There is a leafy entrance gate, and we have some seats in
-            our shop.
-          </p>
-          <p class="mb-4">
-            What you can enjoy here is wonderful coffee and sweets, and relaxing
-            rich time. In our shop, you can drink a coffee of “Little Nap COFFEE
-            STAND”, the coffee shop in Yoyogi-Koen station.
-          </p>
-          <p class="text-muted-foreground">
-            We hope it will be a special time that you choose and eat our
-            sweets, and give it someone. Please come to our shop in any time of
-            your daily life, and enjoy our delicious magic.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <Map />
-
-    <!-- Restaurant Info Area -->
-    <div id="restaurantInfoArea" class="py-[22px]">
-      <div class="flex flex-col justify-center w-[1200px] mx-auto">
-        <div class="flex justify-center w-full mb-[35px]">Horarios</div>
-        
-        <div class="flex">
-          <div class="flex flex-col w-[600px] pl-[140px] box-border">
-            <p class="mb-[2em]">Simón Bolívar Kalea, 25, Abando, 48010 Bilbao, Bizkaia <a href="https://g.co/kgs/8YSib8w" class="text-blue-500">[MAP]</a></p>
-            <a href="tel:+34944026745" class="mb-[1em]">TEL: +34944026745</a>
-            <p class="mt-[1em]">Monday - Saturday 6:00-23:30</p>
-            <p class="my-[1em]">Sundays Closed</p>
-          </div>
-  
-          <div class="flex flex-col w-[600px] pl-[140px] text-gray-500">
-            <p class="mb-[2em]">Simón Bolívar Kalea, 25, Abando, 48010 Bilbao, Bizkaia <a href="https://g.co/kgs/8YSib8w" class="text-blue-500">[MAP]</a></p>
-            <a href="tel:+34944026745" class="mb-[1em]">TEL: +34944026745</a>
-            <p class="mt-[1em]">Monday - Saturday 6:00-23:30</p>
-            <p class="my-[1em]">Sundays Closed</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Official Account Area -->
-    <div id="officialAccountArea" class="text-center">
-      <div class="w-[1100px] mx-auto">
-        <p class="mt-[20px]">Las últimas novedades se proporcionan en la cuenta oficial de muka.bilbao</p>
-        <p class="my-[40px] text-gray-500">The latest news, updates in muka.bilbao</p>
-        <ul class="sns">
-          <li class="inline-block">
-            <a
-              href="https://www.facebook.com/HocusPocus-218161445256640/"
-              target="_blank"
-            >
-              <img
-                src="./src/assets/images/btn_fb_off.png"
-                alt="Facebook"
-                class="w-[34px]"
-              />
-            </a>
-          </li>
-          <li class="inline-block">
-            <a
-              href="http://www.instagram.com/hocuspocus_donuts"
-              target="_blank"
-            >
-              <img
-                src="./src/assets/images/btn_insta_off.png"
-                alt="Instagram"
-                class="w-[34px]"
-              />
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <Footer />
-  </div>
 </Layout>
 
 <style>
   #photoArea {
-    background: url(../assets/images/img_bg.jpg) center center no-repeat fixed;
+    background: url(../assets/images/img_bg.jpeg) center center no-repeat fixed;
     background-size: cover;
   }
 </style>
